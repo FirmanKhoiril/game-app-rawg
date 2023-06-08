@@ -22,17 +22,17 @@ const Navbar = () => {
         <SearchBar />
       </div>
       <div className="flex items-center flex-row-reverse gap-2">
-        <button onClick={() => setDark((prev: boolean) => !prev)} type="button" name="avatar" aria-label="user" className="button_icon">
-          {!dark ? <CiDark className="text-2xl" /> : <CiSun className="text-2xl" />}
+        <button onClick={() => setDark((prev: boolean) => !prev)} type="button" name="avatar" aria-label="user" className="button_icon peer">
+          {!dark ? <CiDark className="text-2xl hover:text-gray-300 trans" /> : <CiSun className="text-2xl hover:text-gray-300 trans" />}
         </button>
         <Link to={`/login`}>
-          <button type="button" name="avatar" aria-label="user" className="button_icon">
-            <RxAvatar className="text-2xl" />
+          <button type="button" name="avatar" aria-label="user" className="button_icon peer">
+            <RxAvatar className="text-2xl hover:text-gray-300 trans" />
           </button>
         </Link>
         <Link to={`/search`}>
-          <button type="button" name="avatar" aria-label="user" className="button_icon">
-            <AiOutlineSearch className="text-2xl" />
+          <button type="button" name="avatar" aria-label="user" className="button_icon peer">
+            <AiOutlineSearch className="text-2xl hover:text-gray-300 trans" />
           </button>
         </Link>
       </div>
