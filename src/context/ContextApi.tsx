@@ -6,12 +6,15 @@ const StateContext = createContext<TContext>({
   setPage: () => {},
   dark: false,
   setDark: () => {},
+  searchTerm: "",
+  setSearchTerm: () => {},
 });
 
 export const GlobalContext = ({ children }: { children: React.ReactNode }) => {
   const [page, setPage] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
   const [dark, setDark] = useState(false);
-  return <StateContext.Provider value={{ page, setPage, dark, setDark }}>{children}</StateContext.Provider>;
+  return <StateContext.Provider value={{ page, searchTerm, setSearchTerm, setPage, dark, setDark }}>{children}</StateContext.Provider>;
 };
 
-export const useGlobalState: any = () => useContext(StateContext);
+export const useGlobalState: any = (): TContext => useContext(StateContext);
