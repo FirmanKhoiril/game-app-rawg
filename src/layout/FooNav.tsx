@@ -8,7 +8,7 @@ import { useGlobalState } from "../context/ContextApi";
 const FooNav = () => {
   const { dark, setDark } = useGlobalState();
   return (
-    <nav className="md:hidden flex w-full justify-around items-center absolute bottom-0 py-3 px-1 bg-zinc-800 ">
+    <nav className="md:hidden flex w-full border-t border-white/10 justify-around items-center fixed z-10 bottom-0 py-2 px-1 bg-zinc-800 ">
       <Link to={`/`}>
         <button type="button" name="buttonHome" aria-label="buttonHome" className="button_icon">
           <AiOutlineHome className="text-3xl" />

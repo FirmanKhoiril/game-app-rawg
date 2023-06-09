@@ -5,12 +5,8 @@ import { DetailGame, Home, Login, Search, SearchResult } from "./pages";
 import { FooNav, Navbar } from "./layout";
 
 function App() {
-  // const { data } = useQuery(["dataDetailGame", page], () => getData(page), {
-  //   refetchOnWindowFocus: false,
-  // });
-  // console.log(data);
   return (
-    <div className="bg-zinc-900  min-h-screen">
+    <div className="bg-gradient-to-t via-zinc-800 to-zinc-900 from-zinc-900 relative  min-h-screen">
       <Navbar />
       <FooNav />
       <Routes>

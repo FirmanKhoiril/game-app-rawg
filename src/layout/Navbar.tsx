@@ -9,7 +9,7 @@ const Navbar = () => {
   const { dark, setDark } = useGlobalState();
 
   return (
-    <nav className="py-3 bg-zinc-800 px-2 md:px-4 hidden md:flex items-center gap-4 justify-between">
+    <nav className="py-3 bg-zinc-800 sticky top-0 px-2 md:px-4 z-10 hidden md:flex items-center gap-4 justify-between">
       <div className="flex items-center gap-4">
         <Link to={"/"} className="font-poppins text-3xl font-bold md:tracking-wide md:text-4xl bg-gradient-to-r from-green-500 md:flex hidden via-green-300 to-green-400 bg-clip-text text-transparent">
           GREENMASTER
