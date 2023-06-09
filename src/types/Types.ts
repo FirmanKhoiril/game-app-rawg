@@ -45,7 +45,11 @@ export type TData = {
   previous: string;
   results: [];
 };
-
+export type TGenre = {
+  id: number;
+  name: string;
+  slug: string;
+};
 export type TResult = {
   id: number;
   added: number;
@@ -65,6 +69,7 @@ export type TResult = {
   };
   name: string;
   metacritic: number;
+  genres: [TGenre];
   playtime: number;
   rating: number;
   rating_top: number;
@@ -101,6 +106,7 @@ export interface IResult {
     };
     name: string;
     metacritic: number;
+    genres: [TGenre];
     playtime: number;
     rating: number;
     rating_top: number;
@@ -115,6 +121,14 @@ export interface IResult {
     updated: string;
     tags: [TTags];
     stores: [TStore];
+  };
+}
+
+export interface IGenre {
+  genre: {
+    id: number;
+    slug: string;
+    name: string;
   };
 }
 

@@ -13,3 +13,8 @@ export const getData = async (): Promise<TData> => {
 
   return res;
 };
+export const getDataSearch = async (search?: string): Promise<TData> => {
+  const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&search=${search}`);
+
+  return res;
+};

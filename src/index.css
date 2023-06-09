@@ -7,7 +7,7 @@ body {
 }
 
 .trans {
-  @apply transition duration-200;
+  @apply transition duration-300;
 }
 
 .button_icon {
