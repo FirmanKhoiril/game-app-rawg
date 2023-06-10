@@ -9,7 +9,7 @@ import moment from "moment";
 const Card = ({ item }: IResult) => {
   return (
     <div className="w-[310px] h-[320px] hover:scale-[1.02] overflow-hidden bg-white/5 gap-1 rounded-md relative flex flex-col">
-      <Link to={`/game-detail/${item.id}`}>
+      <Link to={`/games/${item.slug}`}>
         <LazyLoadImage src={item.background_image} height={170} width={310} alt="background" loading="lazy" effect="blur" className="h-[170px] w-[310px]" />
       </Link>
       <div className="px-2 space-y-1 ">
@@ -18,7 +18,7 @@ const Card = ({ item }: IResult) => {
             <Platform key={platform.platform.id} platform={platform} />
           ))}
         </div>
-        <Link to={`/game-detail/${item.id}`} className="text-[18px] hover:text-white/70 transition duration-300 font-poppins tracking-[0.020rem]">
+        <Link to={`/games/${item.slug}`} className="text-[18px] hover:text-white/70 transition duration-300 font-poppins tracking-[0.020rem]">
           {item.name}
         </Link>
         <div className="flex gap-1 flex-wrap">

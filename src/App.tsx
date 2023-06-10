@@ -14,7 +14,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route element={<SearchResult />} path="/search/:id" />
         <Route path="/login" element={<Login />} />
-        <Route path="/game-detail/:id" element={<DetailGame />} />
+        <Route path="/games/:id" element={<DetailGame />} />
         <Route path="/genre/:genre" element={<Genres />} />
       </Routes>
     </div>

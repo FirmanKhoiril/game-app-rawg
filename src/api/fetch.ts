@@ -12,8 +12,14 @@ export const getData = async (pageParam: number): Promise<any> => {
 
   return res;
 };
-export const getDataSearch = async (search?: string): Promise<any> => {
-  const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&search=${search}`);
+export const getDataSearch = async (search?: string, pageParam?: number): Promise<any> => {
+  const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&search=${search}&page=${pageParam}`);
+
+  return res;
+};
+
+export const getDetailGame = async (id?: string): Promise<any> => {
+  const res = await getGameDetails(`games/${id}?key=${import.meta.env.VITE_PUBLIC_API_KEY}`);
 
   return res;
 };

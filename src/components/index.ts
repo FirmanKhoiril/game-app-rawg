@@ -5,3 +5,5 @@ export { default as Platform } from "./Platform";
 export { default as Loading } from "./Loading";
 export { default as Error } from "./Error";
 export { default as Genre } from "./Genre";
+export { default as RelatedGame } from "./RelatedGame";
+export { default as Detail } from "./Detail";

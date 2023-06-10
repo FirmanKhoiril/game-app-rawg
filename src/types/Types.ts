@@ -1,12 +1,52 @@
 import React, { SetStateAction } from "react";
 
 export type TContext = {
-  page: number;
   dark: boolean;
   searchTerm: string;
-  setPage: React.Dispatch<SetStateAction<number>>;
+
   setDark: React.Dispatch<SetStateAction<boolean>>;
   setSearchTerm: React.Dispatch<SetStateAction<string>>;
+};
+
+export interface IDetailGame {
+  item: {
+    added: number;
+    added_by_status: {
+      beaten: number;
+      dropped: number;
+      owned: number;
+      playing: number;
+      toplay: number;
+      yet: number;
+    };
+    background_image: string;
+    creators_count: number;
+    description: string;
+    developers: [TDevelopers];
+    genres: [TGenre];
+    metacritic: number;
+    name: string;
+    name_original: string;
+    playtime: number;
+    esrb_rating: {
+      name: string;
+      slug: string;
+      id: number;
+    };
+    ratings: [TRatings];
+    ratings_count: number;
+    released: string;
+    tags: [TTags];
+    website: string;
+    publishers: [TDevelopers];
+    platforms: [TPlatform];
+  };
+}
+
+export type TDevelopers = {
+  id: number;
+  name: string;
+  slug: string;
 };
 
 export type TPlatform = {
