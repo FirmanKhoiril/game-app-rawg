@@ -39,12 +39,6 @@ export type TRatings = {
   percent: number;
 };
 
-export type TData = {
-  count: number;
-  next: string;
-  previous: string;
-  results: [];
-};
 export type TGenre = {
   id: number;
   name: string;
@@ -73,6 +67,7 @@ export type TResult = {
   playtime: number;
   rating: number;
   rating_top: number;
+  released: string;
   platforms: [TPlatform];
   ratings: [TRatings];
   ratings_count: number;
@@ -113,6 +108,7 @@ export interface IResult {
     platforms: [TPlatform];
     ratings: [TRatings];
     ratings_count: number;
+    released: string;
     reviews_count: number;
     reviews_text_count: number;
     short_screenshots: [TScreenshot];

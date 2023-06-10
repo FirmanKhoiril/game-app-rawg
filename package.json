@@ -12,8 +12,10 @@
   "dependencies": {
     "@types/react-lazy-load-image-component": "^1.5.3",
     "axios": "^1.4.0",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.4.4",
     "react-lazy-load-image-component": "^1.6.0",
     "react-loader-spinner": "^5.3.4"
   },

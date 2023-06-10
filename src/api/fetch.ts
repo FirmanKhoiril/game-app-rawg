@@ -1,5 +1,4 @@
 import axios from "axios";
-import { TData } from "../types/Types";
 
 const BASE_URL: string = "https://api.rawg.io/api";
 
@@ -8,12 +7,12 @@ const getGameDetails = async (url: string): Promise<any> => {
   return data;
 };
 
-export const getData = async (): Promise<TData> => {
-  const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&dates=2023-6-6`);
+export const getData = async (pageParam: number): Promise<any> => {
+  const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&dates=2023-6-6&page=${pageParam}`);
 
   return res;
 };
-export const getDataSearch = async (search?: string): Promise<TData> => {
+export const getDataSearch = async (search?: string): Promise<any> => {
   const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&search=${search}`);
 
   return res;
