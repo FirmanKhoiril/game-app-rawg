@@ -3,6 +3,8 @@ import React, { SetStateAction } from "react";
 export type TContext = {
   dark: boolean;
   searchTerm: string;
+  setOrderBy: React.Dispatch<SetStateAction<string>>;
+  orderBy: string;
 
   setDark: React.Dispatch<SetStateAction<boolean>>;
   setSearchTerm: React.Dispatch<SetStateAction<string>>;

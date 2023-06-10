@@ -7,8 +7,8 @@ const getGameDetails = async (url: string): Promise<any> => {
   return data;
 };
 
-export const getData = async (pageParam: number): Promise<any> => {
-  const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&dates=2023-6-6&page=${pageParam}`);
+export const getData = async (pageParam: number, orderBy: string): Promise<any> => {
+  const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&dates=2023-6-6&page=${pageParam}&ordering=${orderBy}`);
 
   return res;
 };

@@ -6,15 +6,17 @@ import { TResult } from "../types/Types";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { Vortex } from "react-loader-spinner";
+import { useGlobalState } from "../context/ContextApi";
 
 const Home = () => {
+  const { orderBy } = useGlobalState();
   const { ref, inView } = useInView({
     threshold: 0,
     rootMargin: "200px",
-    delay: 300,
+    delay: 150,
     root: null,
   });
-  const { data, isError, isLoading, isFetching, isFetchingNextPage, fetchNextPage, hasNextPage, isSuccess } = useInfiniteQuery(["dataDetailGame"], ({ pageParam = 1 }) => getData(pageParam), {
+  const { data, isError, isLoading, isFetching, isFetchingNextPage, fetchNextPage, hasNextPage, isSuccess } = useInfiniteQuery(["dataDetailGame", orderBy], ({ pageParam = 1 }) => getData(pageParam, orderBy), {
     refetchOnWindowFocus: false,
     staleTime: 60 * (60 * 1000),
     refetchInterval: 60 * (60 * 1000),
@@ -34,7 +36,7 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen">
       <HeroSection />
       <Categories />
       {isLoading && isFetching ? (
