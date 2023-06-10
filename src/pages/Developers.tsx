@@ -1,25 +1,24 @@
 import { useInfiniteQuery } from "react-query";
-import { Categories, Error, GameCard, Loading } from "../components";
-import { HeroSection } from "../layout";
-import { getData } from "../api/fetch";
-import { TResult } from "../types/Types";
-import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getDataByDeveloper } from "../api/fetch";
 import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+import { Error, GameCard, Loading } from "../components";
+import { TResult } from "../types/Types";
 import { Vortex } from "react-loader-spinner";
-import { useGlobalState } from "../context/ContextApi";
 
-const Home = () => {
-  const { orderBy } = useGlobalState();
+const Developers = () => {
+  const { developer } = useParams();
   const { ref, inView } = useInView({
     threshold: 0,
     rootMargin: "200px",
     delay: 150,
     root: null,
   });
-  const { data, isError, isLoading, isFetching, isFetchingNextPage, fetchNextPage, hasNextPage, isSuccess } = useInfiniteQuery(["dataDetailGame", orderBy], ({ pageParam = 1 }) => getData(pageParam, orderBy), {
-    refetchOnWindowFocus: false,
-    staleTime: 60 * (60 * 1000),
+  const { data, hasNextPage, fetchNextPage, isLoading, isFetching, isFetchingNextPage, isError, isSuccess } = useInfiniteQuery(["byDeveloper", developer], ({ pageParam = 1 }) => getDataByDeveloper(pageParam, developer), {
     refetchInterval: 60 * (60 * 1000),
+    staleTime: 60 * (60 * 1000),
+    refetchOnWindowFocus: false,
     getNextPageParam: (pages) => {
       if (pages.next === null) return;
       const params = new URLSearchParams(pages.next);
@@ -27,7 +26,6 @@ const Home = () => {
       return page;
     },
   });
-
   useEffect(() => {
     if (inView) fetchNextPage();
   }, [isFetchingNextPage, isLoading, fetchNextPage, inView]);
@@ -38,8 +36,6 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      <HeroSection />
-      <Categories />
       {isLoading && isFetching ? (
         <Loading />
       ) : isError ? (
@@ -61,4 +57,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Developers;

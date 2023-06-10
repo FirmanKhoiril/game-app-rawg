@@ -9,6 +9,9 @@ export type TContext = {
   setDark: React.Dispatch<SetStateAction<boolean>>;
   setSearchTerm: React.Dispatch<SetStateAction<string>>;
 };
+export interface IParams {
+  title: string;
+}
 
 export interface IDetailGame {
   item: {

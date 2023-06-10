@@ -1,5 +1,7 @@
-const RelatedGame = () => {
-  return <div>RelatedGame</div>;
+import { IParams } from "../types/Types";
+
+const RelatedGame = ({ title }: IParams) => {
+  return <div>RelatedGame {title}</div>;
 };
 
 export default RelatedGame;

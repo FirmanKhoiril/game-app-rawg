@@ -14,9 +14,9 @@ const Detail = ({ item }: IDetailGame) => {
 
   return (
     <div className="flex flex-col py-20 md:py-10 overflow-hidden">
-      <div className="flex justify-around items-center gap-5 lg:flex-row flex-col px-3 md:px-10 w-full ">
-        <LazyLoadImage loading="lazy" effect="blur" src={item.background_image} alt={item.name} className="h-[370px] rounded-tr-lg w-full md:w-[400px]" width={400} height={370} />
+      <div className="flex justify-center items-center px-2 ">
         <div className="flex flex-col items-start gap-2 min-w-min md:min-w-[500px] max-w-[1000px]">
+          <LazyLoadImage loading="lazy" effect="blur" src={item.background_image} alt={item.name} className="h-[370px] mb-2 rounded-tr-lg w-full" />
           <div className="space-y-1">
             <div className="flex items-center gap-2 flex-wrap">
               <p className="py-1 px-3 font-poppins tracking-wide trans hover:bg-transparent hover:text-white border-transparent hover:border-white border cursor-default rounded-full bg-white text-black">
@@ -27,7 +27,7 @@ const Detail = ({ item }: IDetailGame) => {
             <div className="flex items-center flex-wrap gap-4">
               <h1 className="font-extrabold text-3xl md:text-4xl">{item.name}</h1>
               <div className="flex flex-col">
-                <p className="text-white/30">WEBSITE</p>
+                <p className="text-white/30">OFFICIAL WEBSITE</p>
                 <a href={item.website} rel="noopener noreferrer" className="border-b hover:text-white/70 hover:border-white/70 trans" target="_blank">
                   {item.website}
                 </a>
@@ -58,9 +58,9 @@ const Detail = ({ item }: IDetailGame) => {
               <h2 className="text-white/30 tracking-wide">DEVELOPERS</h2>
               <div className="flex gap-2">
                 {item.developers.map((developer: TDevelopers) => (
-                  <div key={developer.id} className="border-transparent border-b hover:border-white trans">
+                  <Link to={`/developer/${developer.slug}`} key={developer.id} className="border-transparent border-b hover:border-white trans">
                     <p>{developer.name}</p>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -68,7 +68,7 @@ const Detail = ({ item }: IDetailGame) => {
               <h2 className="text-white/30 tracking-wide">GENRES</h2>
               <div className="flex gap-2">
                 {item.genres.map((genre: TGenre) => (
-                  <Link to={`/genre/${genre.name}`} key={genre.name} className="border-transparent border-b hover:border-white trans">
+                  <Link to={`/genre/${genre.name}`} key={genre.name} className="border-transparent border-b hover:border-white trans tracking-wider">
                     <p>{genre.name}</p>
                   </Link>
                 ))}
@@ -79,9 +79,9 @@ const Detail = ({ item }: IDetailGame) => {
               <h2 className="text-white/30 tracking-wide">PUBLISHERS</h2>
               <div className="flex gap-2 flex-wrap">
                 {item.publishers.map((publish: TDevelopers) => (
-                  <div key={publish.id} className="border-transparent border-b hover:border-white trans">
+                  <Link to={`/publisher/${publish.slug}`} key={publish.id} className="border-transparent tracking-wide border-b hover:border-white trans">
                     <p>{publish.name}</p>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -89,9 +89,9 @@ const Detail = ({ item }: IDetailGame) => {
               <h2 className="text-white/30 tracking-wide">PLATFORMS</h2>
               <div className="flex gap-2 flex-wrap">
                 {item.platforms.map((platform: TPlatform) => (
-                  <div key={platform.platform.id} className="border-transparent border-b hover:border-white trans">
+                  <Link to={`/platform/${platform.platform.slug}`} key={platform.platform.id} className="border-transparent tracking-widest border-b hover:border-white trans">
                     <p>{platform.platform.name}</p>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -105,17 +105,17 @@ const Detail = ({ item }: IDetailGame) => {
               <h2 className="text-white/30 tracking-wide">TAGS</h2>
               <div className="flex gap-2 flex-wrap">
                 {item.tags.map((tag: TTags) => (
-                  <div key={tag.id} className="border-transparent border-b hover:border-white trans">
+                  <Link key={tag.id} to={`/tag/${tag.slug}`} className="border-transparent border-b tracking-wide hover:border-white trans">
                     <p>{tag.name + ","}</p>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="">
-        <RelatedGame />
+      <div className="flex flex-wrap justify-center items-center py-10">
+        <RelatedGame title={item.name} />
       </div>
     </div>
   );

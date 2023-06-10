@@ -4,3 +4,7 @@ export { default as Login } from "./Login";
 export { default as DetailGame } from "./DetailGame";
 export { default as SearchResult } from "./SearchResult";
 export { default as Genres } from "./Genres";
+export { default as Developers } from "./Developers";
+export { default as Tags } from "./Tags";
+export { default as Platform } from "./Platform";
+export { default as Publisher } from "./Publisher";
