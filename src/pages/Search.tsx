@@ -35,7 +35,10 @@ const Search = () => {
 
   return (
     <div className="min-h-screen">
-      <SearchFilter />
+      <div className=" sticky top-[52px] bg-zinc-900 border-t border-white/10 z-10">
+        <SearchFilter />
+      </div>
+
       {isLoading && isFetching ? (
         <Loading />
       ) : isError ? (

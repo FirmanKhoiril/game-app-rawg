@@ -1,15 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
 import { AiOutlineSearch } from "react-icons/ai";
-import { CiDark, CiSun } from "react-icons/ci";
-import { useGlobalState } from "../context/ContextApi";
+import { BiLogOut, BiLogIn } from "react-icons/bi";
+
 import Avatar from "react-avatar";
 
 const FooNav = () => {
-  const { dark, setDark } = useGlobalState();
+  const navigate = useNavigate();
   const userdata: any = localStorage.getItem("user");
   const user = JSON.parse(userdata);
+
+  const handleLogin = () => {
+    if (user) localStorage.removeItem("user");
+    navigate("/login");
+  };
 
   return (
     <nav className="md:hidden flex w-full border-t border-white/10 justify-around items-center fixed z-10 bottom-0 py-2 px-1 bg-zinc-800 ">
@@ -32,8 +37,8 @@ const FooNav = () => {
           </button>
         </Link>
       )}
-      <button onClick={() => setDark((prev: boolean) => !prev)} name="buttonDark" type="button" aria-label="buttonDark" className="button_icon">
-        {!dark ? <CiDark className="text-3xl" /> : <CiSun className="text-3xl" />}
+      <button onClick={handleLogin} name="buttonDark" type="button" aria-label="buttonDark" className="button_icon">
+        {user ? <BiLogOut className="text-3xl" /> : <BiLogIn className="text-3xl" />}
       </button>
     </nav>
   );

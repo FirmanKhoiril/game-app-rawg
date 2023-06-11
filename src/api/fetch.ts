@@ -23,8 +23,8 @@ export const getRelatedGame = async (pageParam: number, title: string): Promise<
 
   return res;
 };
-export const getAchievementGame = async (id: number): Promise<any> => {
-  const res = await getGameDetails(`games/${id}/achievements?key=${import.meta.env.VITE_PUBLIC_API_KEY}`);
+export const getAchievementGame = async (pageParam: number, id: number): Promise<any> => {
+  const res = await getGameDetails(`games/${id}/achievements?key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}`);
 
   return res;
 };

@@ -1,7 +1,6 @@
 import React, { SetStateAction } from "react";
 
 export type TContext = {
-  dark: boolean;
   searchTerm: string;
   setOrderBy: React.Dispatch<SetStateAction<string>>;
   orderBy: string;
@@ -11,7 +10,6 @@ export type TContext = {
   setForm: React.Dispatch<SetStateAction<any>>;
   setIsSignup: React.Dispatch<SetStateAction<boolean>>;
   setPassword: React.Dispatch<SetStateAction<boolean>>;
-  setDark: React.Dispatch<SetStateAction<boolean>>;
   setSearchTerm: React.Dispatch<SetStateAction<string>>;
 };
 export interface IParams {

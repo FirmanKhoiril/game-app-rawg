@@ -1,17 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SearchBar } from "../components";
 import { RxAvatar } from "react-icons/rx";
 import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
-import { CiDark, CiSun } from "react-icons/ci";
-import { useGlobalState } from "../context/ContextApi";
+import { BiLogOut, BiLogIn } from "react-icons/bi";
 import Avatar from "react-avatar";
 
 const Navbar = () => {
-  const { dark, setDark } = useGlobalState();
-
   const userdata: any = localStorage.getItem("user");
   const user = JSON.parse(userdata);
+  const navigate = useNavigate();
 
+  const handleLogin = () => {
+    if (user) localStorage.removeItem("user");
+    navigate("/login");
+  };
   return (
     <>
       <nav className="md:hidden sticky top-0 bg-zinc-900 z-10 px-4 py-2 flex gap-2 items-center">
@@ -32,8 +34,8 @@ const Navbar = () => {
           <SearchBar />
         </div>
         <div className="flex items-center flex-row-reverse gap-2">
-          <button onClick={() => setDark((prev: boolean) => !prev)} type="button" name="avatar" aria-label="user" className="button_icon peer">
-            {!dark ? <CiDark className="text-2xl hover:text-gray-300 trans" /> : <CiSun className="text-2xl hover:text-gray-300 trans" />}
+          <button onClick={handleLogin} type="button" name="avatar" aria-label="user" className="button_icon peer">
+            {user ? <BiLogOut className="text-2xl hover:text-gray-300 trans" /> : <BiLogIn className="text-2xl hover:text-gray-300 trans" />}
           </button>
 
           {user ? (
