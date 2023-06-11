@@ -8,7 +8,7 @@ const getGameDetails = async (url: string): Promise<any> => {
 };
 
 export const getData = async (pageParam: number, orderBy: string): Promise<any> => {
-  const res = await getGameDetails(`games?key=${import.meta.env.VITE_PUBLIC_API_KEY}&dates=2023-6-6&page=${pageParam}&ordering=${orderBy}`);
+  const res = await getGameDetails(`games?key=${import.meta.env.VITE_PUBLIC_API_KEY}&dates=2023-6-6&page=${pageParam}&ordering=-${orderBy}`);
 
   return res;
 };
@@ -64,6 +64,7 @@ export const getDataByTags = async (pageParam: number, tag?: string): Promise<an
 
   return res;
 };
+
 export const getDataSearch = async (search?: string, pageParam?: number): Promise<any> => {
   const res = await getGameDetails(`games?key=${import.meta.env.VITE_PUBLIC_API_KEY}&search=${search}&page=${pageParam}`);
 

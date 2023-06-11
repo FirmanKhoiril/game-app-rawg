@@ -5,7 +5,12 @@ export type TContext = {
   searchTerm: string;
   setOrderBy: React.Dispatch<SetStateAction<string>>;
   orderBy: string;
-
+  password: boolean;
+  form: any;
+  isSignup: boolean;
+  setForm: React.Dispatch<SetStateAction<any>>;
+  setIsSignup: React.Dispatch<SetStateAction<boolean>>;
+  setPassword: React.Dispatch<SetStateAction<boolean>>;
   setDark: React.Dispatch<SetStateAction<boolean>>;
   setSearchTerm: React.Dispatch<SetStateAction<string>>;
 };
