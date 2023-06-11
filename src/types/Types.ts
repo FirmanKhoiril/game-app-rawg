@@ -54,7 +54,7 @@ export interface IDetailGame {
     tags: [TTags];
     website: string;
     publishers: [TDevelopers];
-    platforms: [TPlatform];
+    platforms?: [TPlatform];
   };
 }
 

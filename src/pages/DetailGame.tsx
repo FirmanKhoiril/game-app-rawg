@@ -6,7 +6,7 @@ import { Detail, Error, Loading } from "../components";
 const DetailGame = () => {
   const { id } = useParams();
 
-  const { data, isLoading, isError, isFetching, isSuccess } = useQuery(["detailGame", id], async () => await getDetailGame(id), {
+  const { data, isLoading, isError, isFetching, isSuccess } = useQuery(["detailGame", id], () => getDetailGame(id), {
     refetchOnWindowFocus: false,
     staleTime: 60 * (60 * 1000),
     refetchInterval: 60 * (60 * 1000),
@@ -20,9 +20,9 @@ const DetailGame = () => {
         <Error />
       ) : (
         isSuccess && (
-          <div className="">
+          <>
             <Detail item={data} />
-          </div>
+          </>
         )
       )}
     </div>

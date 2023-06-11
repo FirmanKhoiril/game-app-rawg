@@ -14,8 +14,8 @@ const Card = ({ item }: IResult) => {
       </Link>
       <div className="px-2 space-y-1 ">
         <div className="flex gap-2 py-[3px]">
-          {item.platforms.map((platform: TPlatform) => (
-            <Platform key={platform.platform.id} platform={platform} />
+          {item?.platforms?.map((platform: TPlatform) => (
+            <Platform key={platform?.platform?.id} platform={platform} />
           ))}
         </div>
         <Link to={`/games/${item.slug}`} className="text-[18px] hover:text-white/70 transition duration-300 font-poppins tracking-[0.020rem]">

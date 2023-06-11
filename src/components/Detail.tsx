@@ -77,7 +77,6 @@ const Detail = ({ item }: IDetailGame) => {
                 ))}
               </div>
             </div>
-
             <div className="space-y-2">
               <h2 className="text-white/30 tracking-wide">PUBLISHERS</h2>
               <div className="flex gap-2 flex-wrap">
@@ -91,11 +90,17 @@ const Detail = ({ item }: IDetailGame) => {
             <div className="space-y-2">
               <h2 className="text-white/30 tracking-wide">PLATFORMS</h2>
               <div className="flex gap-2 flex-wrap">
-                {item?.platforms?.map((platform: TPlatform) => (
-                  <Link to={`/platform/${platform.platform.id}`} key={platform.platform.id} className="border-transparent tracking-widest border-b hover:border-white trans">
-                    <p>{platform.platform.name}</p>
-                  </Link>
-                ))}
+                {!item.platforms === null ? (
+                  <div className="">
+                    {item?.platforms?.map((plat: TPlatform) => (
+                      <Link to={`/platform/${plat.platform.slug}`} key={plat.platform.id} className="border-transparent tracking-widest border-b hover:border-white trans">
+                        <p>{plat.platform.name}</p>
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="">Test</div>
+                )}
               </div>
             </div>
             <div className=" flex items-center gap-2 ">
