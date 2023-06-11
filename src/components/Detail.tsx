@@ -3,7 +3,7 @@ import { IDetailGame, TDevelopers, TGenre, TPlatform, TRatings, TTags } from "..
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
-import { RelatedGame } from ".";
+import { RelatedGame, ScreenShot } from ".";
 
 const Detail = ({ item }: IDetailGame) => {
   const description = item.description
@@ -16,7 +16,10 @@ const Detail = ({ item }: IDetailGame) => {
     <div className="flex flex-col py-20 md:py-10 overflow-hidden">
       <div className="flex justify-center items-center px-2 ">
         <div className="flex flex-col items-start gap-2 min-w-min md:min-w-[500px] max-w-[1000px]">
-          <LazyLoadImage loading="lazy" effect="blur" src={item.background_image} alt={item.name} className="h-[370px] mb-2 rounded-tr-lg w-full" />
+          <div className="flex flex-row gap-1 flex-wrap">
+            <LazyLoadImage loading="lazy" effect="blur" src={item.background_image} alt={item.name} className="h-[370px] max-w-[480px] mb-2 rounded-tr-lg w-full" />
+            <ScreenShot title={item.slug} />
+          </div>
           <div className="space-y-1">
             <div className="flex items-center gap-2 flex-wrap">
               <p className="py-1 px-3 font-poppins tracking-wide trans hover:bg-transparent hover:text-white border-transparent hover:border-white border cursor-default rounded-full bg-white text-black">
@@ -58,7 +61,7 @@ const Detail = ({ item }: IDetailGame) => {
               <h2 className="text-white/30 tracking-wide">DEVELOPERS</h2>
               <div className="flex gap-2">
                 {item.developers.map((developer: TDevelopers) => (
-                  <Link to={`/developer/${developer.slug}`} key={developer.id} className="border-transparent border-b hover:border-white trans">
+                  <Link to={`/developer/${developer?.slug}`} key={developer.id} className="border-transparent border-b hover:border-white trans">
                     <p>{developer.name}</p>
                   </Link>
                 ))}
@@ -68,7 +71,7 @@ const Detail = ({ item }: IDetailGame) => {
               <h2 className="text-white/30 tracking-wide">GENRES</h2>
               <div className="flex gap-2">
                 {item.genres.map((genre: TGenre) => (
-                  <Link to={`/genre/${genre.name}`} key={genre.name} className="border-transparent border-b hover:border-white trans tracking-wider">
+                  <Link to={`/genre/${genre.slug}`} key={genre.name} className="border-transparent border-b hover:border-white trans tracking-wider">
                     <p>{genre.name}</p>
                   </Link>
                 ))}
@@ -88,7 +91,7 @@ const Detail = ({ item }: IDetailGame) => {
             <div className="space-y-2">
               <h2 className="text-white/30 tracking-wide">PLATFORMS</h2>
               <div className="flex gap-2 flex-wrap">
-                {item.platforms.map((platform: TPlatform) => (
+                {item?.platforms?.map((platform: TPlatform) => (
                   <Link to={`/platform/${platform.platform.slug}`} key={platform.platform.id} className="border-transparent tracking-widest border-b hover:border-white trans">
                     <p>{platform.platform.name}</p>
                   </Link>

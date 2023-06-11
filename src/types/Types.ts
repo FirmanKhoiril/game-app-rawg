@@ -15,6 +15,7 @@ export interface IParams {
 
 export interface IDetailGame {
   item: {
+    slug: string;
     added: number;
     added_by_status: {
       beaten: number;
@@ -194,4 +195,5 @@ export type TTags = {
 
 export type TScreenshot = {
   image: string;
+  id: number;
 };

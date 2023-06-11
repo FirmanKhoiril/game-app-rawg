@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/react-lazy-load-image-component": "^1.5.3",
     "axios": "^1.4.0",
+    "lightbox.js-react": "^0.6.4",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

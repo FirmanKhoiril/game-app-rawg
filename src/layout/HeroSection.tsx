@@ -1,6 +1,6 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import Bg from "../assets/b.jpg";
+import Bg from "../assets/bg.webp";
 
 const HeroSection = () => {
   return (

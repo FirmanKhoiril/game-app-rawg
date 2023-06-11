@@ -7,3 +7,4 @@ export { default as Error } from "./Error";
 export { default as Genre } from "./Genre";
 export { default as RelatedGame } from "./RelatedGame";
 export { default as Detail } from "./Detail";
+export { default as ScreenShot } from "./ScreenShot";
