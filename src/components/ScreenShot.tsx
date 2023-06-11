@@ -22,7 +22,7 @@ const ScreenShot = ({ title }: IParams) => {
         isSuccess && (
           <SlideshowLightbox className="grid gap-1 grid-rows-2 grid-cols-2">
             {data?.results.map((image: TScreenshot) => (
-              <img key={image.id} alt={`Image ${image.id}`} loading="lazy" width={250} height={250} className="min-w-[120px] bg-pink-500 min-h-[150px] max-w-[200px] max-h-[200px]" src={image.image} />
+              <img key={image.id} alt={`Image ${image.id}`} loading="lazy" width={250} height={250} className="min-w-[120px] bg-pink-500 min-h-[150px] hover:scale-[1.01] rounded-lg max-w-[200px] max-h-[200px]" src={image.image} />
             ))}
           </SlideshowLightbox>
         )

@@ -3,7 +3,7 @@ import { IDetailGame, TDevelopers, TGenre, TPlatform, TRatings, TTags } from "..
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link } from "react-router-dom";
-import { RelatedGame, ScreenShot } from ".";
+import { Archievement, RelatedGame, ScreenShot } from ".";
 
 const Detail = ({ item }: IDetailGame) => {
   const description = item.description
@@ -31,8 +31,8 @@ const Detail = ({ item }: IDetailGame) => {
               <h1 className="font-extrabold text-3xl md:text-4xl">{item.name}</h1>
               <div className="flex flex-col">
                 <p className="text-white/30">OFFICIAL WEBSITE</p>
-                <a href={item.website} rel="noopener noreferrer" className="border-b hover:text-white/70 hover:border-white/70 trans" target="_blank">
-                  {item.website}
+                <a href={item.website || item.reddit_url} rel="noopener noreferrer" className="border-b hover:text-white/70 hover:border-white/70 trans" target="_blank">
+                  {item.website || item.reddit_url}
                 </a>
               </div>
             </div>
@@ -92,7 +92,7 @@ const Detail = ({ item }: IDetailGame) => {
               <h2 className="text-white/30 tracking-wide">PLATFORMS</h2>
               <div className="flex gap-2 flex-wrap">
                 {item?.platforms?.map((platform: TPlatform) => (
-                  <Link to={`/platform/${platform.platform.slug}`} key={platform.platform.id} className="border-transparent tracking-widest border-b hover:border-white trans">
+                  <Link to={`/platform/${platform.platform.id}`} key={platform.platform.id} className="border-transparent tracking-widest border-b hover:border-white trans">
                     <p>{platform.platform.name}</p>
                   </Link>
                 ))}
@@ -114,6 +114,7 @@ const Detail = ({ item }: IDetailGame) => {
                 ))}
               </div>
             </div>
+            <Archievement id={item.id} />
           </div>
         </div>
       </div>

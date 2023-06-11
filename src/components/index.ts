@@ -8,3 +8,5 @@ export { default as Genre } from "./Genre";
 export { default as RelatedGame } from "./RelatedGame";
 export { default as Detail } from "./Detail";
 export { default as ScreenShot } from "./ScreenShot";
+export { default as Archievement } from "./Archievement";
+export { default as SearchFilter } from "./SearchFilter";

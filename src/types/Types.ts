@@ -13,8 +13,13 @@ export interface IParams {
   title: string;
 }
 
+export interface IId {
+  id: number;
+}
+
 export interface IDetailGame {
   item: {
+    id: number;
     slug: string;
     added: number;
     added_by_status: {
@@ -41,6 +46,7 @@ export interface IDetailGame {
     };
     ratings: [TRatings];
     ratings_count: number;
+    reddit_url: string;
     released: string;
     tags: [TTags];
     website: string;
@@ -125,6 +131,14 @@ export type TResult = {
   updated: string;
   tags: [TTags];
   stores: [TStore];
+};
+
+export type TAchievement = {
+  id: number;
+  description: string;
+  name: string;
+  percent: number;
+  image: string;
 };
 
 export interface IResult {

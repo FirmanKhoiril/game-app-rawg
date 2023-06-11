@@ -8,45 +8,64 @@ const getGameDetails = async (url: string): Promise<any> => {
 };
 
 export const getData = async (pageParam: number, orderBy: string): Promise<any> => {
-  const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&dates=2023-6-6&page=${pageParam}&ordering=${orderBy}`);
+  const res = await getGameDetails(`games?key=${import.meta.env.VITE_PUBLIC_API_KEY}&dates=2023-6-6&page=${pageParam}&ordering=${orderBy}`);
+
+  return res;
+};
+
+export const getDataSearchFilter = async (pageParam: number): Promise<any> => {
+  const res = await getGameDetails(`games?key=${import.meta.env.VITE_PUBLIC_API_KEY}&dates=2023-6-6&page=${pageParam}`);
+
+  return res;
+};
+export const getRelatedGame = async (pageParam: number, title: string): Promise<any> => {
+  const res = await getGameDetails(`games?key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}&search=${title}`);
+
+  return res;
+};
+export const getAchievementGame = async (id: number): Promise<any> => {
+  const res = await getGameDetails(`games/${id}/achievements?key=${import.meta.env.VITE_PUBLIC_API_KEY}`);
 
   return res;
 };
 
 export const getDataByDeveloper = async (pageParam: number, developer?: string): Promise<any> => {
-  const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}&developers=${developer}`);
+  const res = await getGameDetails(`games?key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}&developers=${developer}`);
 
   return res;
 };
+
 export const getScreenShot = async (title?: string): Promise<any> => {
   const res = await getGameDetails(`games/${title}/screenshots?key=${import.meta.env.VITE_PUBLIC_API_KEY}`);
 
   return res;
 };
+
 export const getDataByPlatform = async (pageParam: number, platform?: string): Promise<any> => {
-  const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}&platforms=${platform}`);
+  const res = await getGameDetails(`games?key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}&platforms=${platform}`);
 
   return res;
 };
+
 export const getDataByPublisher = async (pageParam: number, publisher?: string): Promise<any> => {
-  const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}&publishers=${publisher}`);
+  const res = await getGameDetails(`games?key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}&publishers=${publisher}`);
 
   return res;
 };
 
 export const getDataByGenre = async (pageParam: number, genre?: string): Promise<any> => {
   console.log(genre);
-  const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}&genres=${genre}`);
+  const res = await getGameDetails(`games?key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}&genres=${genre}`);
 
   return res;
 };
 export const getDataByTags = async (pageParam: number, tag?: string): Promise<any> => {
-  const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}&tags=${tag}`);
+  const res = await getGameDetails(`games?key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}&tags=${tag}`);
 
   return res;
 };
 export const getDataSearch = async (search?: string, pageParam?: number): Promise<any> => {
-  const res = await getGameDetails(`games?&key=${import.meta.env.VITE_PUBLIC_API_KEY}&search=${search}&page=${pageParam}`);
+  const res = await getGameDetails(`games?key=${import.meta.env.VITE_PUBLIC_API_KEY}&search=${search}&page=${pageParam}`);
 
   return res;
 };
