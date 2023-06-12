@@ -90,17 +90,13 @@ const Detail = ({ item }: IDetailGame) => {
             <div className="space-y-2">
               <h2 className="text-white/30 tracking-wide">PLATFORMS</h2>
               <div className="flex gap-2 flex-wrap">
-                {!item.platforms === null ? (
-                  <div className="">
-                    {item?.platforms?.map((plat: TPlatform) => (
-                      <Link to={`/platform/${plat.platform.slug}`} key={plat.platform.id} className="border-transparent tracking-widest border-b hover:border-white trans">
-                        <p>{plat.platform.name}</p>
-                      </Link>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="">Test</div>
-                )}
+                <div className="flex flex-wrap gap-2">
+                  {item?.platforms?.map((plat: TPlatform) => (
+                    <Link to={`/platform/${plat.platform.slug}`} key={plat.platform.id} className="border-transparent tracking-widest border-b hover:border-white trans">
+                      <p>{plat.platform.name}</p>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
             <div className=" flex items-center gap-2 ">
