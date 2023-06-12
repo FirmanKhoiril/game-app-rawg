@@ -48,11 +48,10 @@ const ScreenShot = ({ title }: IParams) => {
             {data?.pages?.map((page) => (
               <SlideshowLightbox key={page.count} className="grid gap-1 grid-rows-2 grid-cols-2">
                 {page?.results?.map((image: TScreenshot) => (
-                  <img key={image?.id} alt={`Image ${image?.id}`} loading="lazy" width={250} height={250} className="min-w-[120px] bg-pink-500 min-h-[150px] hover:scale-[1.01] rounded-lg max-w-[200px] max-h-[200px]" src={image?.image} />
+                  <img key={image?.id} alt={`Image ${image?.id}`} loading="lazy" width={250} height={250} className="min-w-[120px] bg-white/20 min-h-[150px] hover:scale-[1.01] rounded-lg max-w-[200px] max-h-[200px]" src={image?.image} />
                 ))}
               </SlideshowLightbox>
             ))}
-
             {hasNextPage && (
               <button ref={ref} type="button" onClick={handleNextPage} className="py-2 px-4 bg-white/20 mt-5 rounded-sm hover:bg-white/10">
                 {isFetchingNextPage ? <Vortex visible={true} height="50" width="50" ariaLabel="vortex-loading" wrapperClass="vortex-wrapper" colors={["#22c55e", "#86efac", "#16a34a", "#84cc16", "#4ade80", "#22d3ee"]} /> : "Next"}
