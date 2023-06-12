@@ -7,6 +7,7 @@ const App = () => {
     <div className="bg-gradient-to-t via-zinc-800 to-zinc-900 from-zinc-900 relative  min-h-screen">
       <Navbar />
       <FooNav />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />

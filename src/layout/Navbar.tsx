@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { SearchBar } from "../components";
 import { RxAvatar } from "react-icons/rx";
-import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
 import { BiLogOut, BiLogIn } from "react-icons/bi";
 import Avatar from "react-avatar";
 
@@ -17,9 +17,6 @@ const Navbar = () => {
   return (
     <>
       <nav className="md:hidden sticky top-0 bg-zinc-900 z-10 px-4 py-2 flex gap-2 items-center">
-        <button type="button" name="buttonMenu" aria-label="buttonMenu">
-          <AiOutlineMenu className="text-2xl hover:text-white text-white/70 trans" />
-        </button>
         <Link to={"/"} className="font-poppins  text-3xl font-bold md:tracking-wide md:hidden block bg-gradient-to-r from-green-500 via-green-300 to-green-400 bg-clip-text text-transparent">
           GREENMASTER
         </Link>

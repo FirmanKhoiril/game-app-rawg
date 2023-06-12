@@ -35,8 +35,8 @@ export const getDataByDeveloper = async (pageParam: number, developer?: string):
   return res;
 };
 
-export const getScreenShot = async (title?: string): Promise<any> => {
-  const res = await getGameDetails(`games/${title}/screenshots?key=${import.meta.env.VITE_PUBLIC_API_KEY}`);
+export const getScreenShot = async (pageParam: number, title?: string): Promise<any> => {
+  const res = await getGameDetails(`games/${title}/screenshots?key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}`);
 
   return res;
 };
@@ -54,7 +54,6 @@ export const getDataByPublisher = async (pageParam: number, publisher?: string):
 };
 
 export const getDataByGenre = async (pageParam: number, genre?: string): Promise<any> => {
-  console.log(genre);
   const res = await getGameDetails(`games?key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}&genres=${genre}`);
 
   return res;

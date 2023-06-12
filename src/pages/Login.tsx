@@ -23,8 +23,8 @@ const Login = () => {
     <section className="min-h-screen relative">
       <LazyLoadImage src={Bg} alt="BackgroundPattern" className="w-full  h-screen" />
 
-      <div className="absolute backdrop-blur-md top-0 w-full h-screen flex justify-center items-center">
-        <form onSubmit={handleSubmit} className="min-w-[350px] md:min-w-[500px] py-20 sm:py-0  rounded-xl font-poppins min-h-[400px] bg-black/40">
+      <div className="absolute backdrop-blur-md top-0 w-full min-h-screen flex justify-center items-center">
+        <form onSubmit={handleSubmit} className="min-w-[350px] md:min-w-[500px] py-10 sm:py-0  rounded-xl font-poppins min-h-[400px] bg-black/40">
           <div className="flex flex-col flex-wrap mx-10">
             <h1 className="mt-6 tracking-widest text-4xl font-poppins bg-gradient-to-r from-green-500 via-green-300 to-green-400 bg-clip-text text-transparent fonr-extrabold">GREENMASTER</h1>
             <p className="text-[13px] mt-2 text-white/50">
