@@ -41,7 +41,7 @@ export const getScreenShot = async (pageParam: number, title?: string): Promise<
   return res;
 };
 
-export const getDataByPlatform = async (pageParam: number, platform?: string): Promise<any> => {
+export const getDataByPlatform = async (pageParam: number, platform?: number | any): Promise<any> => {
   const res = await getGameDetails(`games?key=${import.meta.env.VITE_PUBLIC_API_KEY}&page=${pageParam}&platforms=${platform}`);
 
   return res;

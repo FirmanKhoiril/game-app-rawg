@@ -92,7 +92,7 @@ const Detail = ({ item }: IDetailGame) => {
               <div className="flex gap-2 flex-wrap">
                 <div className="flex flex-wrap gap-2">
                   {item?.platforms?.map((plat: TPlatform) => (
-                    <Link to={`/platform/${plat.platform.slug}`} key={plat.platform.id} className="border-transparent tracking-widest border-b hover:border-white trans">
+                    <Link to={`/platform/${plat.platform.id}`} key={plat.platform.id} className="border-transparent tracking-widest border-b hover:border-white trans">
                       <p>{plat.platform.name}</p>
                     </Link>
                   ))}
