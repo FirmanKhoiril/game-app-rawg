@@ -16,7 +16,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="md:hidden sticky top-0 bg-zinc-900 z-10 px-4 py-2 flex gap-2 items-center">
+      <nav className="md:hidden  bg-zinc-900 z-10 px-4 py-4 flex gap-2 items-center">
         <Link to={"/"} className="font-poppins  text-3xl font-bold md:tracking-wide md:hidden block bg-gradient-to-r from-green-500 via-green-300 to-green-400 bg-clip-text text-transparent">
           GREENMASTER
         </Link>
