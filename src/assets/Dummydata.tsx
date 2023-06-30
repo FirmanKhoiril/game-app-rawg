@@ -1,42 +1,50 @@
+import { SlGameController } from "react-icons/sl";
+import { SiEpicgames, SiSecurityscorecard } from "react-icons/si";
+import { BsFillCalendarDateFill } from "react-icons/bs";
+import { IoCreateOutline } from "react-icons/io5";
+import { MdUpdate } from "react-icons/md";
+import { AiOutlineClockCircle } from "react-icons/ai";
+import { FcRating } from "react-icons/fc";
+
 export const orderDataBy = [
   {
     name: "All",
+    icon: <SiEpicgames size={25} />,
     value: "",
-    color: "bg-gradient-to-r from-[#bef264] via-[#65a30d] to-[#4ade80]",
   },
   {
     name: "Name",
     value: "name",
-    color: "bg-gradient-to-r from-[#2dd4bf] via-[#0891b2] to-[#0284c7]",
+    icon: <SlGameController size={25} />,
   },
   {
     name: "Release date",
     value: "released",
-    color: "bg-gradient-to-r from-[#a855f7] via-[#8b5cf6] to-[#5b21b6]",
+    icon: <AiOutlineClockCircle size={25} />,
   },
   {
     name: "Date added",
     value: "added",
-    color: "bg-gradient-to-r from-[#e879f9] via-[#c026d3] to-[#86198f]",
+    icon: <BsFillCalendarDateFill size={25} />,
   },
   {
     name: "Created",
     value: "created",
-    color: "bg-gradient-to-r from-[#fb7185] via-[#e11d48] to-[#9f1239]",
+    icon: <IoCreateOutline size={25} />,
   },
   {
     name: "Updated",
     value: "updated",
-    color: "bg-gradient-to-r from-[#818cf8] via-[#4f46e5] to-[#3730a3]",
+    icon: <MdUpdate size={25} />,
   },
   {
     name: "Popularity",
     value: "rating",
-    color: "bg-gradient-to-r from-[#f472b6] via-[#db2777] to-[#9d174d]",
+    icon: <FcRating size={25} />,
   },
   {
     name: "Meta Score",
     value: "metacritic",
-    color: "bg-gradient-to-r from-[#22d3ee] via-[#0891b2] to-[#155e75]",
+    icon: <SiSecurityscorecard size={25} />,
   },
 ];

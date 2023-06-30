@@ -35,7 +35,7 @@ const Search = () => {
 
   return (
     <div className="min-h-screen">
-      <div className=" sticky top-[52px] bg-zinc-900 border-t border-white/10 z-10">
+      <div className=" sticky top-0 bg-zinc-900 border-t border-white/10 z-10">
         <SearchFilter />
       </div>
 

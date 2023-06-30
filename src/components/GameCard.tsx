@@ -8,9 +8,9 @@ import moment from "moment";
 
 const Card = ({ item }: IResult) => {
   return (
-    <div className="w-[310px] h-[320px] hover:scale-[1.02] overflow-hidden bg-white/5 gap-1 rounded-md relative flex flex-col">
+    <div className="w-[240px] md:w-[310px] h-[320px] hover:scale-[1.02] overflow-hidden bg-white/5 gap-1 rounded-md relative flex flex-col">
       <Link to={`/games/${item.slug}`}>
-        <LazyLoadImage src={item.background_image} height={170} width={310} alt="background" loading="lazy" effect="blur" className="h-[170px] w-[310px]" />
+        <LazyLoadImage src={item.background_image} height={170} width={310} alt="background" loading="lazy" effect="blur" className="h-[170px] w-[240px] md:w-[310px]" />
       </Link>
       <div className="px-2 space-y-1 ">
         <div className="flex gap-2 py-[3px]">
@@ -26,7 +26,11 @@ const Card = ({ item }: IResult) => {
             <Genre key={genre.id} genre={genre} />
           ))}
         </div>
-        {item.metacritic ? <div className="absolute right-2 bottom-[100px] bg-zinc-800 border-green-500/50 border px-[6px] rounded-md">{item.metacritic}</div> : ""}
+        {item.metacritic ? (
+          <div className={`absolute right-2 bottom-[100px] bg-zinc-800  border px-[6px] rounded-md ${item.metacritic >= 70 ? "border-green-500/50" : item.metacritic >= 50 ? "border-yellow-500" : "border-red-500"}`}>{item.metacritic}</div>
+        ) : (
+          ""
+        )}
         <p className="text-[12px] text-gray-400 absolute  bottom-3">{moment(item.released).format("LL")}</p>
         <div className="absolute bottom-0 right-0 px-3 py-2">
           <p className="flex gap-1 text-white/70 hover:text-white trans text-sm items-center">

@@ -11,8 +11,11 @@ const Categories = () => {
           type="button"
           key={data.name}
           onClick={() => setOrderBy(data.value)}
-          className={`py-2 font-bold ${data.value === orderBy ? "shadow-[0px_2px_3px_2px] scale-[1.05]" : " shadow-sm"} tracking-wide trans font-poppins  shadow-white/20  rounded-lg min-w-[140px]  px-3 ${data.color}`}
+          className={`py-2 font-bold ${
+            data.value === orderBy ? "shadow-[0px_2px_3px_2px] scale-[1.05]" : " shadow-sm"
+          } tracking-wide trans font-poppins flex items-center flex-col shadow-white/20  rounded-lg min-w-[140px]  px-3 bg-white/10`}
         >
+          <span>{data.icon}</span>
           {data.name}
         </button>
       ))}
